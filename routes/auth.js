@@ -4,13 +4,24 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config');
+const auth = require('../middleware/auth')
 const User = require('../models/User');
 const router = express.Router()
 
 // @route        GET api/auth
 // @desc         Get logged in user
 // @ access      Private
-router.get('/', (req, res) => { res.send('Get logged in user') })
+router.get('/', auth, (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password')
+        res.json(user)
+    }
+    catch (err) {
+        console.error(err.message)
+        res.status(500).send('Server Error')
+    }
+
+})
 
 // @route        POST api/auth
 // @desc         Auth user and get token
