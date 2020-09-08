@@ -8,7 +8,7 @@ const router = express.Router()
 // @route        GET api/contacts
 // @desc         Get all users contacts
 // @ access      Private
-router.get('/', auth, (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const contacts = await Contact.find({ user: req.user.id }).sort({ date: -1 })
         res.json(contacts)
@@ -21,8 +21,21 @@ router.get('/', auth, (req, res) => {
 
 // @route        POST api/contacts
 // @desc         Add new contact
-// @ access      Public
-router.post('/', (req, res) => { res.send('Add contact') })
+// @ access      Private
+router.post('/', [auth, [
+    check('name', 'Name is required').not().isEmpty()
+]], (req, res) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    try {
+
+
+    }
+    catch (err) { }
+})
 // @route        PUT api/contacts/:id
 // @desc         Update contact
 // @ access      Private
