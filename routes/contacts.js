@@ -29,12 +29,20 @@ router.post('/', [auth, [
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
     }
-
+    const { name, email, phone, type } = req.body
     try {
-
+        const newConact = new Contact({
+            name, email, phone, type,
+            user: req.user.id
+        })
+        const contact = await newConact.save()
+        res.json(contact)
 
     }
-    catch (err) { }
+    catch (err) {
+        console.error(err.message)
+        res.status(500).send('Server Error')
+    }
 })
 // @route        PUT api/contacts/:id
 // @desc         Update contact
