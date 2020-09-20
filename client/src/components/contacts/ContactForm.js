@@ -8,6 +8,8 @@ const ContactForm = () => {
         type: 'personal'
     })
     const { name, email, phone, type } = contact
+
+    const onChange = e => setContact({ ...contact, [e.target.name]: e.target.value })
     return (
         <form>
             <h2 className='text-primary'>
@@ -26,6 +28,10 @@ const ContactForm = () => {
                 Personal{''}</input>
             <input type='radio' name='type' value='professional' checked={type === 'professional'} >
                 Professional{''}</input>
+            <div>
+                <input type='submit' value='Add Contact' className='btn btn-primary btn-block'>
+                </input>
+            </div>
         </form>
     )
 }
