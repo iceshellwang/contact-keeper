@@ -19,6 +19,13 @@ const ContactForm = () => {
             </input>
             <input type='phone' placeholder='Phone' name='phone' value={phone} onChange={onChange}>
             </input>
+            <h5 >
+                Contact Type
+</h5>
+            <input type='radio' name='type' value='personal' checked={type === 'personal'} >
+                Personal{''}</input>
+            <input type='radio' name='type' value='professional' checked={type === 'professional'} >
+                Professional{''}</input>
         </form>
     )
 }
