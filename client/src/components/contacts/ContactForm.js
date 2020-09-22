@@ -36,10 +36,10 @@ const ContactForm = () => {
             <h5 >
                 Contact Type
 </h5>
-            <input type='radio' name='type' value='personal' checked={type === 'personal'} >
-                Personal{''}</input>
-            <input type='radio' name='type' value='professional' checked={type === 'professional'} >
-                Professional{''}</input>
+            <input type='radio' name='type' value='personal' checked={type === 'personal'} />
+            <label>Personal</label>
+            <input type='radio' name='type' value='professional' checked={type === 'professional'} />
+            <label>Professional</label>
             <div>
                 <input type='submit' value='Add Contact' className='btn btn-primary btn-block'>
                 </input>
