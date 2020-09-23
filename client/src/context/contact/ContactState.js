@@ -37,6 +37,7 @@ const ContactState = props => {
                 type: 'professional'
             }
         ],
+        current: null
 
     }
 
