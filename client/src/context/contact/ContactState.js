@@ -82,6 +82,10 @@ const ContactState = props => {
     }
     //CLEAR FILTER
 
+    const clearFilter = () => {
+
+        dispatch({ type: CLEAR_FILTER })
+    }
     return (
         <ContactContext.Provider
             value={{
