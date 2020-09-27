@@ -37,7 +37,8 @@ const ContactState = props => {
                 type: 'professional'
             }
         ],
-        current: null
+        current: null,
+        filtered: null
 
     }
 
@@ -75,7 +76,10 @@ const ContactState = props => {
         dispatch({ type: UPDATE_CONTACT, payload: contact })
     }
     //FILTER CONTACTS
+    const filterContacts = text => {
 
+        dispatch({ type: FILTER_CONTACTS, payload: text })
+    }
     //CLEAR FILTER
 
     return (
