@@ -17,6 +17,7 @@ const AuthState = props => {
         token: localStorage.getItem('token'),
         isAuthenticated: null,
         loading: true,
+        user: null,
         error: null
 
 
@@ -24,42 +25,29 @@ const AuthState = props => {
 
     const [state, dispatch] = useReducer(authReducer, initialState)
 
-    //ADD CONTACT
+    //Load User
 
+    //Register Uer
 
+    //Login User
 
-    //UPDATE CONTACT
-    const updateContact = contact => {
+    //Logoutt
 
-        dispatch({ type: UPDATE_CONTACT, payload: contact })
-    }
-    //FILTER CONTACTS
-    const filterContacts = text => {
+    //Clear errors
 
-        dispatch({ type: FILTER_CONTACTS, payload: text })
-    }
-    //CLEAR FILTER
-
-    const clearFilter = () => {
-
-        dispatch({ type: CLEAR_FILTER })
-    }
     return (
-        <ContactContext.Provider
+        <AuthContext.Provider
             value={{
-                contacts: state.contacts,
-                current: state.current,
-                filtered: state.filtered,
-                addContact, deleteContact,
-                setCurrent,
-                clearCurrent,
-                updateContact,
-                filterContacts,
-                clearFilter
+                token: state.token,
+                isAuthenticated: state.isAuthenticated,
+                loading: state.loading,
+                error: state.error,
+                user: state.user,
+
             }}>
             {props.children}
-        </ContactContext.Provider>
+        </AuthContext.Provider>
     )
 }
 
-export default ContactState
+export default AuthState
