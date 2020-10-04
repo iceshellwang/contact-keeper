@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Register = () => {
+const Register = () => {
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -45,3 +45,5 @@ export const Register = () => {
         </div>
     )
 }
+
+export default Register
