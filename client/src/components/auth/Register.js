@@ -8,6 +8,13 @@ export const Register = () => {
         password2: ''
     })
     const { name, email, password, password2 } = user
+    const onChange = e => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }
+    const onSubmit = e => {
+        e.preventDefault()
+        console.log('Register submit')
+    }
     return (
         <div className='form-container'>
             <h1>
@@ -16,7 +23,7 @@ export const Register = () => {
                     Register
     </span>
             </h1>
-            <form>
+            <form onSubmit={onSubmit}>
                 <div className='form-group'>
                     <label htmlFor='name'>Name</label>
                     <input type='text' name='name' value={name} onChange={onChange}></input>
@@ -30,9 +37,10 @@ export const Register = () => {
                     <input type='password' name='password' value={password} onChange={onChange}></input>
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password2'>Password2</label>
+                    <label htmlFor='password2'>Confirm Password</label>
                     <input type='password2' name='password2' value={password2} onChange={onChange}></input>
                 </div>
+                <input type='submit' value='Register' className='btn btn-primary btn-block'></input>
             </form>
         </div>
     )
