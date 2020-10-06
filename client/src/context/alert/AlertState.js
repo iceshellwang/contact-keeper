@@ -13,17 +13,9 @@ import {
 } from '../types'
 
 const AlertState = props => {
-    const initialState = {
-        token: localStorage.getItem('token'),
-        isAuthenticated: null,
-        loading: true,
-        user: null,
-        error: null
+    const initialState = []
 
-
-    }
-
-    const [state, dispatch] = useReducer(authReducer, initialState)
+    const [state, dispatch] = useReducer(alertReducer, initialState)
 
     //Load User
 
