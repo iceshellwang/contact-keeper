@@ -31,22 +31,18 @@ const AlertState = props => {
 
     //Login User
 
-    //Logoutt
+    //Logout
 
     //Clear errors
 
     return (
-        <AuthContext.Provider
+        <AlertContext.Provider
             value={{
-                token: state.token,
-                isAuthenticated: state.isAuthenticated,
-                loading: state.loading,
-                error: state.error,
-                user: state.user,
-
+                alerts: state,
+                setAlert
             }}>
             {props.children}
-        </AuthContext.Provider>
+        </AlertContext.Provider>
     )
 }
 
