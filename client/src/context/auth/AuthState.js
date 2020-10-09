@@ -28,7 +28,24 @@ const AuthState = props => {
     //Load User
 
     //Register Uer
+    const register = async formData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        try {
+            const res = await axios.post('/api/users', formData, config)
 
+            dispatch({
+                type: REGISTER_SUCCESS,
+                payload: res.data
+            })
+        }
+        catch (err) {
+
+        }
+    }
     //Login User
 
     //Logoutt
