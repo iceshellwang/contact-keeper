@@ -43,7 +43,10 @@ const AuthState = props => {
             })
         }
         catch (err) {
-
+            dispatch({
+                type: REGISTER_FAIL,
+                payload: err.response.data.msg
+            })
         }
     }
     //Login User
