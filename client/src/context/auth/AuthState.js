@@ -10,7 +10,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    CLEAR_CURRENT
 } from '../types'
 
 const AuthState = props => {
@@ -55,7 +56,8 @@ const AuthState = props => {
     //Logoutt
     const logout = () => console.log('logout')
     //Clear errors
-    const clearErrors = () => console.log('clearErrors')
+    const clearErrors = () =>
+        dispatch({ type: CLEAR_ERRORS })
     return (
         <AuthContext.Provider
             value={{
