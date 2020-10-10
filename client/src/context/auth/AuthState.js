@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import axios from 'axios'
 import AuthContext from './authContext'
 import authReducer from './authReducer'
 import {
@@ -63,6 +64,7 @@ const AuthState = props => {
                 loading: state.loading,
                 error: state.error,
                 user: state.user,
+                register
 
             }}>
             {props.children}
