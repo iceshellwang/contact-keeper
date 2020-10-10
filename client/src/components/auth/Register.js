@@ -5,10 +5,11 @@ const Register = () => {
     const alertContext = useContext(AlertContext)
     const authContext = useContext(AuthContext)
     const { setAlert } = alertContext
-    const { register, error } = authContext
+    const { register, error, clearErrors } = authContext
     useEffect(() => {
         if (error === 'User already exists') {
             setAlert(error, 'danger')
+            clearErrors()
         }
     }, [error])
     const [user, setUser] = useState({
