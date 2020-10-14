@@ -20,6 +20,16 @@ const Navbar = ({ title, icon }) => {
             </li>
         </Fragment>
     )
+    const guestLinks = (
+        <Fragment>
+            <li>
+                <Link to='/register'>Register</Link>
+            </li>
+            <li>
+                <Link to='/login'>Login</Link>
+            </li>
+        </Fragment>
+    )
     return (
         <div className='navbar bg-primary'>
             <h1>
