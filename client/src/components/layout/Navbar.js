@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AuthContext from '../../context/auth/authContext'
 
 const Navbar = ({ title, icon }) => {
+    const authContext = useContext(AuthContext)
+    const { logout, user, isAuthenticated } = authContext
     return (
         <div className='navbar bg-primary'>
             <h1>
